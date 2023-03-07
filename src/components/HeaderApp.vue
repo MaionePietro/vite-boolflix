@@ -3,16 +3,23 @@
         <div class="logo">
             <h1><a href="">BoolFlix</a></h1>
         </div>
-        <FilterFilm />
+        <div class="input-group">
+            <input 
+            type="text" placeholder="inserisci" v-model="store.textSearch"
+            @keyup.enter="$event => $emit('searchText')"
+            >
+            <button>cerca</button>
+        </div>
     </div>
 </template>
 <script>
-import FilterFilm from './FilterFilm.vue';
+import store from '../store';
 export default {
-    components:{
-        FilterFilm
+    data(){
+        return{
+            store
+        }
     }
-    
 }
 </script>
 <style lang="scss" scoped>
