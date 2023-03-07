@@ -1,17 +1,43 @@
 <template>
     <div class="main">
-
+        <MainCards />
     </div>
 </template>
 <script>
+import axios from 'axios';
+import store from '../store';
+import MainCards from './MainCards.vue';
+
 export default {
-    
+    components:{
+        MainCards
+    },
+    data() {
+        return {
+            store
+        }
+    },
+    methods: {
+        fetchCharacters() {
+            axios
+            .get('https://api.themoviedb.org/3/search/movie?api_key=974f643eea3f3c14a8d3e50ae8737a52&query=ritorno+al+fut&language=it-IT')
+            .then((res) => {
+                console.log('chiamata oggetto: ' + res.data)
+                this.store.characters = res.data
+                console.log('chiamata oggetto : ' + this.store.characters.results[1].backdrop_path)
+            })
+        }
+    },
+    created() {
+        this.fetchCharacters()
+    }
 }
 </script>
 <style lang="scss" scoped>
 @use'../style/partials/_variables' as *;
-    .main{
-        height: calc(100vh - 90px);
-        background-color: $bg-main;
-    }
+
+.main {
+    height: calc(100vh - 90px);
+    background-color: $bg-main;
+}
 </style>
