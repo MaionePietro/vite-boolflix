@@ -1,6 +1,6 @@
 <template>
     <div v-for="results in store.characters">
-        <p>{{ character.results[1].backdrop_path }}</p>  
+        <p>{{ results[0].overview }}</p>  
     </div>
 </template>
 <script>
