@@ -6,11 +6,11 @@
         <p>{{ results.original_language }}</p>
         <p>{{ results.vote_average }}</p>
         <span v-if="results.original_language === 'en'"
-            :class="{ 'fi fi-gb flag': results.original_language === 'en' }"></span>
+            :class="{ 'fi fi-gb': results.original_language === 'en' }"></span>
         <span v-if="results.original_language === 'it'"
-            :class="{ 'fi fi-it flag': results.original_language === 'it' }"></span>
+            :class="{ 'fi fi-it': results.original_language === 'it' }"></span>
         <span v-if="results.original_language === 'ja'"
-            :class="{ 'fi fi-jp flag': results.original_language === 'ja' }"></span>
+            :class="{ 'fi fi-jp': results.original_language === 'ja' }"></span>
     </div>
     <FlagConver />
 </template>
@@ -35,9 +35,4 @@ export default {
     }
 }
 
-.flag {
-    background-size: contain;
-    background-position: 50%;
-    background-repeat: no-repeat;
-}
 </style>

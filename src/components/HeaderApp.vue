@@ -1,17 +1,26 @@
 <template>
     <div class="sidebar">
         <div class="logo">
-            <h1><a href="">BoolFlix</a></h1>
+            <a href="">
+                <img src="/img/BoolFlix.png" alt="">
+            </a>
         </div>
-        <div class="input-group">
-            <input type="text" placeholder="inserisci" v-model="store.textSearch">
-            <button @click="$event => $emit('searchText')">cerca</button>
+        <div class="input-container">
+            <button class="button-input" @click="$event => $emit('searchText')">
+                <font-awesome-icon icon="fa-solid fa-magnifying-glass" class="icon" />            
+            </button>
+            <input class="input" type="text" placeholder="Titoli, persone e generi" v-model="store.textSearch">
         </div>
     </div>
 </template>
 <script>
+
 import store from '../store';
+// import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 export default {
+    // components:{
+    //     FontAwesomeIcon,
+    // },
     data(){
         return{
             store
@@ -29,8 +38,44 @@ export default {
         padding: 30px;
         background-color: $bg-side;
         .logo{
-            color: $color-booltflix;
-            font-weight: 700;
+            width: 15%;
+        }
+        .input-container{
+            display: flex;
+            padding: 10px;
+            width: 40px;
+            gap: 10px;
+            transition: width 3s;
+            
+            .input{
+                color: white;
+                display: none;
+                background: none;
+                border: none;
+                font-size: 10px;
+            }
+            .button-input{
+                background: none;
+                border: none;
+                .icon{
+                    color: white;
+                    font-size: 20px;
+                }
+            }
+        }
+        .input-container:hover{
+            width: 200px;
+            border: solid 1px white;
+            border-radius: 20px;
+            transition: width 3s;
+            .input{
+                display: block;
+                overflow: auto;
+                border: none;
+            }
+        }
+        span{
+            color: white;
         }
     }
 </style>
