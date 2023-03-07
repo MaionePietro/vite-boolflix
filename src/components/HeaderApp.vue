@@ -3,14 +3,14 @@
         <div class="logo">
             <h1><a href="">BoolFlix</a></h1>
         </div>
-        <FilterCards />
+        <FilterFilm />
     </div>
 </template>
 <script>
-import FilterCards from './FilterCards.vue';
+import FilterFilm from './FilterFilm.vue';
 export default {
     components:{
-        FilterCards
+        FilterFilm
     }
     
 }
