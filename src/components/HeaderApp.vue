@@ -3,14 +3,15 @@
         <div class="logo">
             <h1><a href="">BoolFlix</a></h1>
         </div>
-        <div class="search">
-            <input type="text">
-            <button>cerca</button>
-        </div>
+        <FilterCards />
     </div>
 </template>
 <script>
+import FilterCards from './FilterCards.vue';
 export default {
+    components:{
+        FilterCards
+    }
     
 }
 </script>

@@ -19,12 +19,16 @@ export default {
     },
     methods: {
         fetchCharacters() {
+            const textSearch = this.store.textSearch;
             axios
-            .get('https://api.themoviedb.org/3/search/movie?api_key=974f643eea3f3c14a8d3e50ae8737a52&query=ritorno+al+fut&language=it-IT')
+            .get('https://api.themoviedb.org/3/search/movie?api_key=974f643eea3f3c14a8d3e50ae8737a52&query=ritorno+al+fut&language=it-IT',{
+                params:{
+                    query: textSearch,
+                }
+            })
             .then((res) => {
                 console.log('chiamata oggetto: ' + res.data)
                 this.store.characters = res.data
-                console.log('chiamata oggetto : ' + this.store.characters.results[1].backdrop_path)
             })
         }
     },
