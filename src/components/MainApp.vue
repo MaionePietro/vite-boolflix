@@ -1,16 +1,19 @@
 <template>
     <div class="main">
         <MainCards />
+        <HeaderApp @searchText="fetchCharacters"/>
     </div>
 </template>
 <script>
 import axios from 'axios';
 import store from '../store';
 import MainCards from './MainCards.vue';
+import HeaderApp from './HeaderApp.vue';
 
 export default {
     components:{
-        MainCards
+        MainCards,
+        HeaderApp
     },
     data() {
         return {
