@@ -2,8 +2,7 @@ import { reactive } from "vue";
 
 const store = reactive({
     characters:[],
-    textSearch: '',
-    flag:''
+    textSearch: ''
 })
 
 export default store
