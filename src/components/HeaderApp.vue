@@ -4,11 +4,8 @@
             <h1><a href="">BoolFlix</a></h1>
         </div>
         <div class="input-group">
-            <input 
-            type="text" placeholder="inserisci" v-model="store.textSearch"
-            @keyup.enter="$event => $emit('searchText')"
-            >
-            <button>cerca</button>
+            <input type="text" placeholder="inserisci" v-model="store.textSearch">
+            <button @click="$event => $emit('searchText')">cerca</button>
         </div>
     </div>
 </template>

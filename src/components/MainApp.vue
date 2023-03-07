@@ -1,7 +1,7 @@
 <template>
+    <HeaderApp @searchText="fetchCharacters"/>
     <div class="main">
         <MainCards />
-        <HeaderApp @searchText="fetchCharacters"/>
     </div>
 </template>
 <script>
@@ -9,7 +9,6 @@ import axios from 'axios';
 import store from '../store';
 import MainCards from './MainCards.vue';
 import HeaderApp from './HeaderApp.vue';
-
 export default {
     components:{
         MainCards,
@@ -27,6 +26,8 @@ export default {
             .get('https://api.themoviedb.org/3/search/movie?api_key=974f643eea3f3c14a8d3e50ae8737a52&query=ritorno+al+fut&language=it-IT',{
                 params:{
                     query: textSearch,
+                    api_key: '974f643eea3f3c14a8d3e50ae8737a52',
+                    language: 'it-IT',
                 }
             })
             .then((res) => {
