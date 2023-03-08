@@ -5,6 +5,7 @@
             <div class="info">
                 <p>Titolo: {{ results.title }}</p>
                 <p>Titolo originale: {{ results.original_title }}</p>
+                <StarLevel :voto="results.vote_average" />
                 <p>Voto: {{ results.vote_average }}</p>
                 <!-- <p>Overview: {{ results.overview }}</p> -->
                 <span v-if="results.original_language === 'en'" :class="{ 'fi fi-gb': results.original_language === 'en' }"></span>
@@ -19,6 +20,7 @@
             <div class="info">
                 <p>Titolo: {{ results.name }}</p>
                 <p>Titolo originale: {{ results.original_name }}</p>
+                <StarLevel :voto="results.vote_average" />
                 <p>Voto: {{ results.vote_average }}</p>
                 <!-- <p>Overview: {{ results.overview }}</p> -->
                 <span v-if="results.original_language === 'en'" :class="{ 'fi fi-gb': results.original_language === 'en' }"></span>
@@ -30,9 +32,13 @@
 </template>
 <script>
 import store from '../store';
+import StarLevel from './StarLevel.vue';
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 
 export default {
+    components:{
+        StarLevel
+    },
     data() {
         return {
             store,
@@ -66,7 +72,7 @@ export default {
         padding: 20px;
     }
 }
-.card:hover{
+.card{
     img{
         opacity: 0.1;
     }
