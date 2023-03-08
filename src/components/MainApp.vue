@@ -30,7 +30,7 @@ export default {
                     language: 'it-IT',
                 }
             }).then((res) => {
-                console.log('chiamata oggetto: ' + res.data[0].results[0].original_title)
+                //console.log('chiamata oggetto: ' + res.data[0].results[0].original_title)
                 this.store.charactersTv = res.data
             }),
             axios

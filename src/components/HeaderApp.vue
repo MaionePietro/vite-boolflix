@@ -9,7 +9,7 @@
             <button class="button-input" @click="$event => $emit('searchText')">
                 <font-awesome-icon icon="fa-solid fa-magnifying-glass" class="icon" />            
             </button>
-            <input class="input" type="text" placeholder="Titoli, persone e generi" v-model="store.textSearch">
+            <input class="input" type="text" placeholder="Titoli, persone e generi" v-model="store.textSearch" @keyup="$event => $emit('searchText')">
         </div>
     </div>
 </template>
