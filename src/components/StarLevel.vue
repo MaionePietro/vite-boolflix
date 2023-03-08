@@ -1,10 +1,10 @@
 <template>
     <div>
-        <font-awesome-icon icon="fa-solid fa-star" :class="{ 'voto': voto <= 2 }" />
-        <font-awesome-icon icon="fa-solid fa-star" :class="{ 'voto': voto <= 4 }"/>
-        <font-awesome-icon icon="fa-solid fa-star" :class="{ 'voto': voto <= 6 }"/>
-        <font-awesome-icon icon="fa-solid fa-star" :class="{ 'voto': voto <= 8 }"/>
-        <font-awesome-icon icon="fa-solid fa-star" :class="{ 'voto': voto <= 10 }"/>
+        <font-awesome-icon icon="fa-solid fa-star" :class="{ 'gold' : voto <= 2 }" />
+        <font-awesome-icon icon="fa-solid fa-star" :class="{ 'gold' : voto <= 4 }"/>
+        <font-awesome-icon icon="fa-solid fa-star" :class="{ 'gold' : voto <= 6 }"/>
+        <font-awesome-icon icon="fa-solid fa-star" :class="{ 'gold' : voto <= 8 }"/>
+        <font-awesome-icon icon="fa-solid fa-star" :class="{ 'gold' : voto <= 10 }"/>
     </div>
 </template>
 <script>
@@ -18,7 +18,7 @@ export default {
 }
 </script>
 <style lang="scss">
-.voto{
+.gold{
     color: gold;
 }
     
