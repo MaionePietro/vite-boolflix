@@ -56,7 +56,7 @@ export default {
 @use'../style/partials/_variables' as *;
 
 .main {
-    height: calc(100vh - 90px);
+    min-height: calc(100vh - 90px);
     background-color: $bg-main;
 }
 </style>

@@ -2,7 +2,7 @@
     <div class="sidebar">
         <div class="logo">
             <a href="">
-                <img src="/img/BoolFlix.png" alt="">
+                <img src="../assets/img/BoolFlix.png" alt="">
             </a>
         </div>
         <div class="input-container">

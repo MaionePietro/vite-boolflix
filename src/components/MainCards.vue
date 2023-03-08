@@ -72,6 +72,7 @@ export default {
     }
     .info{
         display: block;
+        height: auto;
     }
 }
 
