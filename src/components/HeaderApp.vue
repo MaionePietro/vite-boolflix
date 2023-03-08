@@ -67,7 +67,7 @@ export default {
             width: 200px;
             border: solid 1px white;
             border-radius: 20px;
-            transition: width 3s;
+            transition: width 1.5s;
             .input{
                 display: block;
                 overflow: auto;
