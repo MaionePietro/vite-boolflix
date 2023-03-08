@@ -23,6 +23,17 @@ export default {
         fetchCharacters() {
             const textSearch = this.store.textSearch;
             axios
+            .get('https://api.themoviedb.org/3/search/tv?api_key=974f643eea3f3c14a8d3e50ae8737a52&query=mare&language=it-IT',{
+                params:{
+                    query: textSearch,
+                    api_key: '974f643eea3f3c14a8d3e50ae8737a52',
+                    language: 'it-IT',
+                }
+            }).then((res) => {
+                console.log('chiamata oggetto: ' + res.data[0].results[0].original_title)
+                this.store.charactersTv = res.data
+            }),
+            axios
             .get('https://api.themoviedb.org/3/search/movie?api_key=974f643eea3f3c14a8d3e50ae8737a52&query=ritorno+al+fut&language=it-IT',{
                 params:{
                     query: textSearch,
@@ -32,7 +43,7 @@ export default {
             })
             .then((res) => {
                 console.log('chiamata oggetto: ' + res.data)
-                this.store.characters = res.data
+                this.store.charactersFilm = res.data
             })
         }
     },

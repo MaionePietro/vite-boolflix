@@ -38,7 +38,7 @@ export default {
         padding: 30px;
         background-color: $bg-side;
         .logo{
-            width: 15%;
+            width: 10%;
         }
         .input-container{
             display: flex;
