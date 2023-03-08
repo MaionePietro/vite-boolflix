@@ -72,7 +72,7 @@ export default {
         padding: 20px;
     }
 }
-.card{
+.card:hover{
     img{
         opacity: 0.1;
     }
