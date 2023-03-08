@@ -1,10 +1,10 @@
 <template>
     <div>
-        <font-awesome-icon icon="fa-solid fa-star" :class="{ 'gold' : voto <= 2 }" />
-        <font-awesome-icon icon="fa-solid fa-star" :class="{ 'gold' : voto <= 4 }"/>
-        <font-awesome-icon icon="fa-solid fa-star" :class="{ 'gold' : voto <= 6 }"/>
-        <font-awesome-icon icon="fa-solid fa-star" :class="{ 'gold' : voto <= 8 }"/>
-        <font-awesome-icon icon="fa-solid fa-star" :class="{ 'gold' : voto <= 10 }"/>
+        <font-awesome-icon icon="fa-solid fa-star" :class="{ 'gold' : voto > 2 }" />
+        <font-awesome-icon icon="fa-solid fa-star" :class="{ 'gold' : voto > 4 }"/>
+        <font-awesome-icon icon="fa-solid fa-star" :class="{ 'gold' : voto > 6 }"/>
+        <font-awesome-icon icon="fa-solid fa-star" :class="{ 'gold' : voto > 8 }"/>
+        <font-awesome-icon icon="fa-solid fa-star" :class="{ 'gold' : voto > 10 }"/>
     </div>
 </template>
 <script>
