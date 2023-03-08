@@ -97,6 +97,7 @@ export default {
 .section-film, .section-tv{
     display: flex;
     overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
     gap: 5px;
 }
 .card {
