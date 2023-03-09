@@ -1,55 +1,55 @@
 <template>
     <div class="section-film">
-        <div v-for="results in store.charactersFilm.results" class="card">
-            <img :src="'https://image.tmdb.org/t/p/w342/'+results.poster_path" alt="" class="copertina">
+        <div v-for="result in store.charactersFilm.results" class="card">
+            <img :src="'https://image.tmdb.org/t/p/w342/'+result.poster_path" alt="" class="copertina">
             <div class="info">
                 <div class="info_sect">
-                    <h2>{{ results.title }}</h2>
+                    <h2>{{ result.title }}</h2>
                 </div>
                 <div class="info_sect">
                     <h3>Titolo originale</h3>
-                    <p>{{ results.original_title }}</p>
+                    <p>{{ result.original_title }}</p>
                 </div>
                 <div class="info_sect">
-                    <StarLevel :voto="results.vote_average" />
+                    <StarLevel :voto="result.vote_average" />
                 </div>
                 <div class="info_sect">
-                    <span v-if="results.original_language === 'en'" :class="{ 'fi fi-gb': results.original_language === 'en' }"></span>
-                    <span v-if="results.original_language === 'it'" :class="{ 'fi fi-it': results.original_language === 'it' }"></span>
-                    <span v-if="results.original_language === 'ja'" :class="{ 'fi fi-jp': results.original_language === 'ja' }"></span>
+                    <span v-if="result.original_language === 'en'" :class="{ 'fi fi-gb': result.original_language === 'en' }"></span>
+                    <span v-if="result.original_language === 'it'" :class="{ 'fi fi-it': result.original_language === 'it' }"></span>
+                    <span v-if="result.original_language === 'ja'" :class="{ 'fi fi-jp': result.original_language === 'ja' }"></span>
                 </div>
                 <div class="info_sect">
                     <h3>Overview</h3>
-                    <p>{{ results.overview }}</p>
+                    <p>{{ result.overview }}</p>
                 </div>
             </div>
         </div>
     </div>
     <div class="section-tv">
-        <div v-for="results in store.charactersTv.results" class="card">
-            <img :src="'https://image.tmdb.org/t/p/w342/'+results.poster_path" alt="" class="copertina">
+        <div v-for="result in store.charactersTv.results" class="card">
+            <img :src="'https://image.tmdb.org/t/p/w342/'+result.poster_path" alt="" class="copertina">
             <div class="info">
                 <div class="info_sect">
-                    <h2>{{ results.name }}</h2>
+                    <h2>{{ result.name }}</h2>
                 </div>
                 <div class="info_sect">
                     <h3>Titolo originale</h3>
-                    <p>{{ results.original_name }}</p>
+                    <p>{{ result.original_name }}</p>
                 </div>
                 <div class="info_sect">
-                    <StarLevel :voto="results.vote_average" />
+                    <StarLevel :voto="result.vote_average" />
                 </div>
                 <div class="info_sect">
-                    <p>Attori: {{ fetchCharacters(results.id) }}</p>
+                    <p>Attori: {{ fetchCharacters(result.id) }}</p>
                 </div>
                 <div class="info_sect">
-                    <span v-if="results.original_language === 'en'" :class="{ 'fi fi-gb': results.original_language === 'en' }"></span>
-                    <span v-if="results.original_language === 'it'" :class="{ 'fi fi-it': results.original_language === 'it' }"></span>
-                    <span v-if="results.original_language === 'ja'" :class="{ 'fi fi-jp': results.original_language === 'ja' }"></span>
+                    <span v-if="result.original_language === 'en'" :class="{ 'fi fi-gb': result.original_language === 'en' }"></span>
+                    <span v-if="result.original_language === 'it'" :class="{ 'fi fi-it': result.original_language === 'it' }"></span>
+                    <span v-if="result.original_language === 'ja'" :class="{ 'fi fi-jp': result.original_language === 'ja' }"></span>
                 </div>
                 <div class="info_sect">
                     <h3>Overview</h3>
-                    <p>{{ results.overview }}</p>
+                    <p>{{ result.overview }}</p>
                 </div>
             </div>
         </div>
@@ -72,7 +72,6 @@ export default {
     },
     methods:{
         fetchCharacters(id){
-            let concatena =''
             const apyKey = this.store.apyKey
             axios
             .get(`https://api.themoviedb.org/3/tv/${id}/credits`,{
@@ -81,13 +80,16 @@ export default {
                     language: 'it-IT',
                 }
             }).then((res) => {
-                this.store.nomi = res.data.cast.original_name
+                let concatena = ''
+                //console.log('nomi: '+res.data.cast.original_name)
+                for(let i=0; i<5; i++){
+                    //console.log(res.data.cast[i].original_name)
+                    concatena += res.data.cast[i].original_name+', ';
+                }
+                console.log(concatena)
+                //console.log()
             })
-            // for(const i=0; i<5; i++){
-            //         console.log(this.store.nomi[i])
-            //         //concatena += this.store.nomi[i];
-            //     }
-            // return concatena;
+            
         }
     }
 }
