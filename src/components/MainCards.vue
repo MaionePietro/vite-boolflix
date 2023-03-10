@@ -40,7 +40,8 @@
                     <StarLevel :voto="result.vote_average" />
                 </div>
                 <div class="info_sect">
-                    <p v-for="actor in result.popularity" >
+                    <p v-for="(actor, i) in result.actors"
+                    v-show="i < 5">
                         {{ actor.name }}
                     </p>
                 </div>

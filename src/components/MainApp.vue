@@ -34,7 +34,6 @@ export default {
                     this.store.charactersTv = res.data
                 }).catch((error) => {
                     //console.log('errore serieTv: '+error)
-                    //this.store.charactersTv = []
                 }),
                 axios
                     .get('https://api.themoviedb.org/3/search/movie', {
@@ -44,7 +43,6 @@ export default {
                             language: 'it-IT',
                         }
                     }).then((res) => {
-                        //console.log('chiamata oggetto: ' + res.data)
                         this.store.charactersFilm = res.data
                     }).catch((error) => {
                         //console.log('errore film: '+error)
@@ -53,8 +51,6 @@ export default {
         },
         fetchCharactersCastTv() {
             for (let i = 0; i < this.store.charactersTv.results.length; i++) {
-                console.log(this.store.charactersTv.results[i].id)
-                let concatena = ''
                 const apyKey = this.store.apyKey
                 axios
                     .get(`https://api.themoviedb.org/3/tv/${this.store.charactersTv.results[i].id}/credits`, {
@@ -62,17 +58,8 @@ export default {
                             api_key: apyKey
                         }
                     }).then((res) => {
-                        //console.log('nomi: '+res.data.cast.original_name)
-                        // for (let i = 0; i < 5; i++) {
-                            // console.log(res.data.cast[i].original_name)
-                            // concatena += res.data.cast[i].original_name + ', ';
-                        // }
-                        //console.log(concatena)
-                        //console.log()
-                        this.store.charactersTv.results[i].popularity = res.data.cast
-                        console.log(this.store.charactersTv.results[i])
+                        this.store.charactersTv.results[i]['actors']= res.data.cast
                     })
-                //console.log('cast' + this.store.cast)
             }
         }
     },
