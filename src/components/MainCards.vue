@@ -40,7 +40,9 @@
                     <StarLevel :voto="result.vote_average" />
                 </div>
                 <div class="info_sect">
-                    <p>Attori: {{ fetchCharacters(result.id) }}</p>
+                    <p v-for="actor in result.popularity" >
+                        {{ actor.name }}
+                    </p>
                 </div>
                 <div class="info_sect">
                     <span v-if="result.original_language === 'en'" :class="{ 'fi fi-gb': result.original_language === 'en' }"></span>
@@ -58,7 +60,6 @@
 <script>
 import store from '../store';
 import StarLevel from './StarLevel.vue';
-import axios from 'axios';
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 
 export default {
@@ -68,28 +69,6 @@ export default {
     data() {
         return {
             store,
-        }
-    },
-    methods:{
-        fetchCharacters(id){
-            const apyKey = this.store.apyKey
-            axios
-            .get(`https://api.themoviedb.org/3/tv/${id}/credits`,{
-                params:{
-                    api_key: apyKey,
-                    language: 'it-IT',
-                }
-            }).then((res) => {
-                let concatena = ''
-                //console.log('nomi: '+res.data.cast.original_name)
-                for(let i=0; i<5; i++){
-                    //console.log(res.data.cast[i].original_name)
-                    concatena += res.data.cast[i].original_name+', ';
-                }
-                console.log(concatena)
-                //console.log()
-            })
-            
         }
     }
 }
