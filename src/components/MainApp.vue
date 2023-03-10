@@ -61,19 +61,38 @@ export default {
                         this.store.charactersTv.results[i]['actors']= res.data.cast
                     })
             }
+        },
+        fetchCharactersCastFilm() {
+            for (let i = 0; i < this.store.charactersFilm.results.length; i++) {
+                const apyKey = this.store.apyKey
+                axios
+                    .get(`https://api.themoviedb.org/3/movie/${this.store.charactersFilm.results[i].id}/credits`, {
+                        params: {
+                            api_key: apyKey
+                        }
+                    }).then((res) => {
+                        this.store.charactersFilm.results[i]['actors']= res.data.cast
+                    })
+            }
         }
     },
     created() {
         this.fetchCharacters()
     },
     computed: {
-        prova() {
+        CastTv() {
             return this.store.charactersTv
+        },
+        CastFilm() {
+            return this.store.charactersFilm
         }
     },
     watch: {
-        prova() {
+        CastTv() {
             this.fetchCharactersCastTv()
+        },
+        CastFilm() {
+            this.fetchCharactersCastFilm()
         }
     }
 

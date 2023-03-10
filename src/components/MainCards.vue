@@ -14,6 +14,12 @@
                     <StarLevel :voto="result.vote_average" />
                 </div>
                 <div class="info_sect">
+                    <p v-for="(actor, i) in result.actors"
+                    v-show="i < 5">
+                        {{ actor.name }}
+                    </p>
+                </div>
+                <div class="info_sect">
                     <span v-if="result.original_language === 'en'" :class="{ 'fi fi-gb': result.original_language === 'en' }"></span>
                     <span v-if="result.original_language === 'it'" :class="{ 'fi fi-it': result.original_language === 'it' }"></span>
                     <span v-if="result.original_language === 'ja'" :class="{ 'fi fi-jp': result.original_language === 'ja' }"></span>
